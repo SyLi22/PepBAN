@@ -68,7 +68,6 @@ def main():
         params['shuffle'] = False
         params['drop_last'] = False
         test_generator = DataLoader(test_target_dataset, **params)
-        target_generator=DataLoader(target_dataset, **params)
     else:
         training_generator = DataLoader(train_dataset, **params)
         params['shuffle'] = False
