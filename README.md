@@ -24,7 +24,7 @@ The optimized parameter file are saved in folder `configs/`.
 download esm model from https://github.com/facebookresearch/esm.
 ## Unzip repository and Configure the environment
 ## create a new folder `esm2`
-$ mkdir embeddings
+$ mkdir esm2
 ## generate ESM-2 embeddings 
 ```
 cd scripts
