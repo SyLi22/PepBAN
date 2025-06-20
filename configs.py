@@ -1,0 +1,57 @@
+from yacs.config import CfgNode as CN
+
+_C = CN()
+
+# PEPTIDE feature extractor
+_C.PEPTIDE = CN()
+_C.PEPTIDE.NUM_FILTERS = [64, 64, 64]
+_C.PEPTIDE.KERNEL_SIZE = [1,1,1]
+_C.PEPTIDE.EMBEDDING_DIM = 512
+
+# Protein feature extractor
+_C.PROTEIN = CN()
+_C.PROTEIN.NUM_FILTERS = [64, 64, 64]
+_C.PROTEIN.KERNEL_SIZE = [1,1,1]
+_C.PROTEIN.EMBEDDING_DIM = 128
+
+# BCN setting
+_C.BCN = CN()
+_C.BCN.HEADS = 7
+
+# MLP decoder
+_C.DECODER = CN()
+_C.DECODER.NAME = "MLP"
+_C.DECODER.IN_DIM = 128
+_C.DECODER.HIDDEN_DIM = 256
+_C.DECODER.OUT_DIM = 128
+_C.DECODER.BINARY = 2
+
+# SOLVER
+_C.SOLVER = CN()
+_C.SOLVER.MAX_EPOCH = 100
+_C.SOLVER.BATCH_SIZE = 64
+# _C.SOLVER.NUM_WORKERS = 0
+_C.SOLVER.LR = 5e-5
+_C.SOLVER.DA_LR = 1e-3
+_C.SOLVER.SEED = 2048
+
+# RESULT
+_C.RESULT = CN()
+_C.RESULT.OUTPUT_DIR = "./result"
+
+# Domain adaptation
+_C.DA = CN()
+_C.DA.TASK = True
+_C.DA.METHOD = "CDAN"
+_C.DA.USE = True
+_C.DA.INIT_EPOCH = 10
+_C.DA.LAMB_DA = 1
+# _C.DA.RANDOM_LAYER = False
+# _C.DA.ORIGINAL_RANDOM = False
+_C.DA.RANDOM_DIM = None
+_C.DA.USE_ENTROPY = False
+
+
+
+def get_cfg_defaults():
+    return _C.clone()
