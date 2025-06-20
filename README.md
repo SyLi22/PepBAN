@@ -23,11 +23,11 @@ The optimized parameter file are saved in folder `configs/`.
 # Embeddings
 download esm model from https://github.com/facebookresearch/esm.
 ## Unzip repository and Configure the environment
-## create a new folder `esm2`
+## create a new folder `esm2` to save embedding vectors
 $ mkdir esm2
-## generate ESM-2 embeddings 
+## enter the folder where ESM-2 is located and generate ESM-2 embeddings 
 ```
-cd scripts
+cd esm/scripts
 python extract.py esm2_t33_650M_UR50D.pt ${dataset}.fasta PepBAN/esm2/${dataset}/ --include mean
 ```
 `${dataset}` could either be `BioGRID`, `STRING`, `camp` and `hsm`.
